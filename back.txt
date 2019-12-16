@@ -1,0 +1,35 @@
+A variável escolhida para ser a dependente foi __classification__. Como existem muitos valores únicos para ela, sparei os dados nas duas categorias mais frequentes ('HYDROLASE' e 'TRANSFERASE') enquanto os restante das categorias foi agrupado em 'Outras' 
+
+
+
+Fiz um loop para facilitar o trabalho repetitivo. As distruibuição de variáveis categóricas e a discreta forma mostradas em tabelas enquanto que as contínuas foram mostradas em gráficos
+
+
+4.3
+
+# Vou plotar gráficos de disperção para as tres correlações mais fortes encontradas
+
+1 par
+### residueCount x structureMolecularWeight  0.9 ###
+É Um correlação intuitivamenrte óbvia. A quantidade de residuos é diretamente proporcional à largura da estrutura 
+
+
+2 par
+### residueCount x structureMolecularWeight  0.93 ###
+Outra correlação intuitivamenrte óbvia. A densidade do solvente [que é calculada incluindo o que está dentro - ou seja o cristal](https://www.rcsb.org/pdb/staticHelp.do?p=help/advancedsearch/crystalProperties.html) é diretamente proporcional à densidade do cristal
+
+sn.relplot(x="densityMatthews", y="densityPercentSol", data=df)
+
+
+
+3 par
+### resolution x densityPercentSol 0.93 ###
+A resolução e a densidade do solvente possuem uma correlaçao mediana
+
+sn.relplot(x="resolution", y="densityPercentSol", data=df)
+
+
+Conclusão
+O dataset possui 141401 registros distribuídos em 4 variáveis categóricas, uma discreta e seis contínuas. Optei por eliminar qualquer rigistro que possuisse valor nulo. Após issso continuamos com 81369, ou, 57%  dos registros. As valores das variáveis categóricas em geral estão distribuídas em várias categorias, enquanto que os valores as contínuas, em sua maioria,  estão distribuídos em pequenas faixas. Na análise de correlação par a par somente dois pares possuem uma alta correlação.
+
+Acredito que as caracteríscas resaltadas dão uma visão geral sobre o dataSet.
